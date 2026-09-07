@@ -6,4 +6,4 @@ RUN pip install --no-cache-dir fastapi uvicorn requests beautifulsoup4 reportlab
 COPY app_v2.00a app_v2.00b app_v2.01 app_v2.02 app_v2.03 /tmp/
 RUN cat /tmp/app_v2.00a /tmp/app_v2.00b /tmp/app_v2.01 /tmp/app_v2.02 /tmp/app_v2.03 | base64 -d | gzip -d > /app/app.py && python -m py_compile /app/app.py
 EXPOSE 8000
-CMD ["sh", "-c", "uvicorn app:app --host 0.0.0.0 --port ${PORT:-8000}"]
+CMD ["sh", "-c", "uvicorn app:app --host 0.0.0.0 --port 8000"]
